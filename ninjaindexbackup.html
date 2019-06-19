@@ -1,0 +1,328 @@
+<html>
+
+
+
+<head><link rel="stylesheet" type="text/css" href="ninjagame (2).css"></head>
+
+<body>
+    <div id="character"></div>
+    <div id="world"></div>
+    <div class="row"></div>
+    <div id="ghost"></div>
+        <div class="bluey"></div>
+        <div class="pinky"></div>
+        <div class="pumpky"></div>
+        <div class="red"></div>
+        <div class="scaredy"></div>
+        
+
+</div>
+<h1>Ninja Challenge</h1>
+
+<!--code written be is a static way to build the background world. 
+    The dynamic version is written in the JS script below-->
+       <!--<div class="row">
+            <div class="wall"></div>
+            <div class="wall"></div>
+            <div class="wall"></div>
+            <div class="wall"></div>
+            <div class="wall"></div>
+            <div class="wall"></div>
+            <div class="wall"></div>
+            <div class="wall"></div>
+            <div class="wall"></div>
+            <div class="wall"></div>
+            <div class="wall"></div>
+            <div class="wall"></div>
+        </div>
+        <div class="row">
+                <div class="wall"></div>
+                <div class="blank"></div>
+                <div class="blank"></div>
+                <div class="blank"></div>
+                <div class="sushi"></div>
+                <div class="blank"></div>
+                <div class="blank"></div>
+                <div class="blank"></div>
+                <div class="blank"></div>
+                <div class="blank"></div>
+                <div class="blank"></div>
+                <div class="wall"></div>
+
+            </div>
+          <div class="row">
+            <div class="wall"></div>
+            <div class="blank"></div>
+            <div class="wall"></div>
+            <div class="blank"></div>
+            <div class="wall"></div>
+            <div class="wall"></div>
+            <div class="blank"></div>
+            <div class="wall"></div>
+            <div class="blank"></div>
+            <div class="wall"></div>
+            <div class="blank"></div>
+            <div class="wall"></div>
+        </div>
+          <div class="row">
+            <div class="blank"></div>
+            <div class="blank"></div>
+            <div class="wall"></div>
+            <div class="blank"></div>
+            <div class="blank"></div>
+            <div class="blank"></div>
+            <div class="sushi"></div>
+            <div class="blank"></div>
+            <div class="blank"></div>
+            <div class="wall"></div>
+            <div class="blank"></div>
+            <div class="blank"></div>
+        </div>
+          <div class="row">
+            <div class="wall"></div>
+            <div class="sushi"></div>
+            <div class="wall"></div>
+            <div class="blank"></div>
+            <div class="wall"></div>
+            <div class="blank"></div>
+            <div class="wall"></div>
+            <div class="wall"></div>
+            <div class="blank"></div>
+            <div class="wall"></div>
+            <div class="blank"></div>
+            <div class="wall"></div>
+        </div>
+          <div class="row">
+      <div class="wall"></div>
+            <div class="blank"></div>
+            <div class="wall"></div>
+            <div class="blank"></div>
+            <div class="wall"></div>
+            <div class="blank"></div>
+            <div class="wall"></div>
+            <div class="wall"></div>
+            <div class="blank"></div>
+            <div class="wall"></div>
+            <div class="blank"></div>
+            <div class="wall"></div>
+        </div>
+          <div class="row">
+                <div class="wall"></div>
+                <div class="blank"></div>
+                <div class="blank"></div>
+                <div class="blank"></div>
+                <div class="blank"></div>
+                <div class="blank"></div>
+                <div class="blank"></div>
+                <div class="blank"></div>
+                <div class="blank"></div>
+                <div class="sushi"></div>
+                <div class="blank"></div>
+                <div class="wall"></div>
+        </div>
+        <div class="row">
+                <div class="wall"></div>
+                <div class="wall"></div>
+                <div class="wall"></div>
+                <div class="wall"></div>
+                <div class="wall"></div>
+                <div class="wall"></div>
+                <div class="wall"></div>
+                <div class="wall"></div>
+                <div class="wall"></div>
+                <div class="wall"></div>
+                <div class="wall"></div>
+                <div class="wall"></div>
+            </div>-->
+
+<h3 id="gamestats">Game Stats</h3>
+<h4 id="score">Score</h4>
+<h4 id="sushieaten">Sushi Eaten</h4>
+<h4 id="retries">Retries</h4>
+<h4 id="pixelstraveled">Pixels Traveled</h4>
+
+<script type="text/javascript">
+
+//GAME STATS CODE
+
+/*function gameStats()
+{
+document.getElementById("pixelstraveled").innerHTML="Pixels Travled: "+keyCode();
+}
+gameStats();*/
+
+//STATIC CHARACTER MOVEMENT CODE
+
+/*var leftValue = 270
+var topValue = 340
+var directon=1
+var step=1;
+
+
+    	function update()
+		{
+    			if(step==1)
+			{
+				step=2;
+			}
+		else
+		{
+			step=1;
+		}
+    		document.getElementById("character").style.left = leftValue+"px";
+    		document.getElementById("character").style.top = topValue+"px";
+			document.getElementById("character").style.backgroundImage="url('img/"+direction+step+".png')";
+			
+			
+    	}
+		
+    	document.onkeydown = function(e){
+    		console.log(e);
+    		if(e.keyCode == 37) { // LEFT
+    			leftValue = leftValue - 50;
+				//console.log("x "+leftValue+" | y "+topValue);
+				if(leftValue === 0 || leftValue < 0)  //Using a condition, if ninja arrives at the edge of the screen, then it keeps resetting itself to the edge value
+				{
+					leftValue=0;
+				}
+				direction="left";
+				}
+    		else if (e.keyCode == 39) { // RIGHT
+    			leftValue = leftValue + 50;
+				//console.log("x "+leftValue+" | y "+topValue);
+				if(leftValue === 630 || leftValue > 630)  //Using a condition, if ninja arrives at the edge of the screen, then it keeps resetting itself to the edge value
+				{
+					leftValue=630;
+				}
+				direction="right";    		
+    		}
+    		else if (e.keyCode == 40) { // DOWN
+				topValue = topValue + 50;
+				//console.log("x "+leftValue+" | y "+topValue);
+				if(topValue === 600 || topValue > 600)  //Using a condition, if ninja arrives at the edge of the screen, then it keeps resetting itself to the edge value
+				{
+					topValue=600;
+				}
+				direction="down";    		
+    		}
+			else if (e.keyCode == 38) { // UP
+				topValue = topValue - 50;
+				//onsole.log("x "+leftValue+" | y "+topValue);
+				if(topValue === 0 || topValue <0)  //Using a condition, if ninja arrives at the edge of the screen, then it keeps resetting itself to the edge value
+				{
+					topValue=0;
+				}
+				direction="top";    		
+    		}
+    		update();
+    	}*/
+        
+        
+
+//DYNAMIC WORLD CODE
+var world = [
+        [1,1,1,1,1,1,1,1,1,1,1,1],
+        [1,0,0,0,2,0,0,0,0,0,0,1],
+        [1,0,1,0,1,1,0,1,0,1,0,1],
+        [0,0,1,0,0,0,2,0,0,1,0,0],
+        [1,2,1,0,1,0,1,1,0,1,0,1],
+        [1,0,1,0,1,0,1,1,0,1,0,1],
+        [1,0,0,0,0,0,0,0,0,2,0,1],
+        [1,1,1,1,1,1,1,1,1,1,1,1]
+        ]
+
+//above are rows of different elements, translated below
+
+var worldDict={
+    0: "blank",
+    1: "wall",
+    2: "sushi"
+}
+
+/*function below dynamically builds the pacman world by referencing 
+the multi-dim array and object above.  The key concept is that it produces HTML from JS function*/
+
+function drawWorld()
+{
+    output="";
+    for(var row=0;row<world.length;row++)
+    {
+        output+="<div class = 'row'>"
+        for(var x=0; x<world[row].length;x++)  // "x" represents the element in the world: 0,1,2
+        {
+            output=output+"<div class='"+worldDict[world[row][x]]+"'></div>"  // <div class='wall'></div>
+        }
+        output=output+"</div>"
+    }
+    document.getElementById("world").innerHTML=output;
+}
+drawWorld();
+
+//DYNAMIC CHARACTER MOVEMENT
+
+var character=
+{x:1, y:1}   //object
+
+
+function drawNinjaMan()
+{
+    
+    document.getElementById('character').style.left=character.x * 70 +"px";
+    //document.getElementById('character').style.left=character.x + 270+"px";
+    document.getElementById('character').style.top=character.y * 70 +"px";
+    //document.getElementById('character').style.top=character.y + 340+"px";    
+}
+
+drawNinjaMan();
+
+document.onkeydown=function(e)
+{
+    if(e.keyCode==37) //left
+    {
+        if(world[character.y][character.x-1]!=1)
+        {
+            character.x--;
+            
+        }
+        
+    }
+    if(e.keyCode==39) //right
+    {
+        if(world[character.y][character.x+1]!=1)
+        {
+            character.x++;
+            
+        }
+        console.log("x.coord "+character.x+"| y.coord "+character.y);
+    }
+    if(e.keyCode==38) //up
+    {
+        if(world[character.y-1][character.x]!=1)
+        {
+            character.y--;
+            
+        }
+        console.log("x.coord "+character.x+"| y.coord "+character.y);
+    }
+    if(e.keyCode==40) //down
+    {
+        if(world[character.y+1][character.x]!=1)
+        {
+            character.y++;
+            
+        }
+        console.log("x.coord "+character.x+"| y.coord "+character.y);
+    }
+    world[character.y][character.x]=0;
+    drawNinjaMan();
+    //drawWorld();
+}
+
+
+
+</script>
+    
+</body>
+<hr>
+<footer>Updated by Phong Nguyen</footer>
+</html>

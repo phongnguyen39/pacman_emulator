@@ -1,0 +1,45 @@
+
+h1{
+    color: red;
+    
+}
+
+	
+#character{
+    position:absolute; 
+	top:250px; left:300px; 
+	background-image: url("https://github.com/phongnguyen39/academy-pacman/blob/master/img/ninja.gif");
+    width:59px; height:86px;
+    margin:0;
+    padding: 0;
+	}
+.row{line-height: 0;}
+
+#world{
+    margin-left: auto;
+    margin-right: auto;
+}
+.wall {
+    display: inline-block;
+    background-color: blue;
+    margin: -2px;
+    padding: 0px;
+    width:59px; height:59px;}
+
+.blank {
+    display: inline-block;
+    background-color: black;
+    margin:-2px;
+    padding: 0px;
+    width:59px; height:59px;}
+
+.sushi {
+    display: inline-block;
+    background-color: black;
+    background-image: url("https://raw.githubusercontent.com/phongnguyen39/academy-pacman/master/img/sushi.png");
+    back-size:contain;
+    margin:-2px;
+    padding: 0px;
+    width:59px; height:59px;}
+ 
+    

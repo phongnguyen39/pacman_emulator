@@ -1,0 +1,219 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252"></head><body><h1>Ninja Challenge</h1>
+<h2>Updated by Phong Nguyen</h2>
+
+<link rel="stylesheet" type="text/css" href="ninjagame (2).css">
+    <div id="character"></div>
+    <div class="world">
+        <div class="row">
+            <!--<div class="wall"></div>
+            <div class="wall"></div>
+            <div class="wall"></div>
+            <div class="wall"></div>
+            <div class="wall"></div>
+            <div class="wall"></div>
+            <div class="wall"></div>
+            <div class="wall"></div>
+            <div class="wall"></div>
+            <div class="wall"></div>
+            <div class="wall"></div>
+            <div class="wall"></div>
+        </div>
+        <div class="row">
+                <div class="wall"></div>
+                <div class="blank"></div>
+                <div class="blank"></div>
+                <div class="blank"></div>
+                <div class="blank"></div>
+                <div class="blank"></div>
+                <div class="blank"></div>
+                <div class="blank"></div>
+                <div class="blank"></div>
+                <div class="blank"></div>
+                <div class="blank"></div>
+                <div class="wall"></div>
+
+            </div>
+          <div class="row">
+            <div class="wall"></div>
+            <div class="blank"></div>
+            <div class="wall"></div>
+            <div class="blank"></div>
+            <div class="wall"></div>
+            <div class="wall"></div>
+            <div class="blank"></div>
+            <div class="wall"></div>
+            <div class="blank"></div>
+            <div class="wall"></div>
+            <div class="blank"></div>
+            <div class="wall"></div>
+        </div>
+          <div class="row">
+            <div class="blank"></div>
+            <div class="blank"></div>
+            <div class="wall"></div>
+            <div class="blank"></div>
+            <div class="blank"></div>
+            <div class="blank"></div>
+            <div class="blank"></div>
+            <div class="blank"></div>
+            <div class="blank"></div>
+            <div class="wall"></div>
+            <div class="blank"></div>
+            <div class="blank"></div>
+        </div>
+          <div class="row">
+            <div class="wall"></div>
+            <div class="blank"></div>
+            <div class="wall"></div>
+            <div class="blank"></div>
+            <div class="wall"></div>
+            <div class="blank"></div>
+            <div class="wall"></div>
+            <div class="wall"></div>
+            <div class="blank"></div>
+            <div class="wall"></div>
+            <div class="blank"></div>
+            <div class="wall"></div>
+        </div>
+          <div class="row">
+      <div class="wall"></div>
+            <div class="blank"></div>
+            <div class="wall"></div>
+            <div class="blank"></div>
+            <div class="wall"></div>
+            <div class="blank"></div>
+            <div class="wall"></div>
+            <div class="wall"></div>
+            <div class="blank"></div>
+            <div class="wall"></div>
+            <div class="blank"></div>
+            <div class="wall"></div>
+        </div>
+          <div class="row">
+                <div class="wall"></div>
+                <div class="blank"></div>
+                <div class="blank"></div>
+                <div class="blank"></div>
+                <div class="blank"></div>
+                <div class="blank"></div>
+                <div class="blank"></div>
+                <div class="blank"></div>
+                <div class="blank"></div>
+                <div class="blank"></div>
+                <div class="blank"></div>
+                <div class="wall"></div>
+        </div>
+        <div class="row">
+                <div class="wall"></div>
+                <div class="wall"></div>
+                <div class="wall"></div>
+                <div class="wall"></div>
+                <div class="wall"></div>
+                <div class="wall"></div>
+                <div class="wall"></div>
+                <div class="wall"></div>
+                <div class="wall"></div>
+                <div class="wall"></div>
+                <div class="wall"></div>
+                <div class="wall"></div>
+            </div>-->
+        
+    </div>
+
+
+    <script type="text/javascript">
+	    var leftValue = 300, topValue = 250, directon=1,step=1;
+        document.getElementById("character").style.backgroundImage="url(down"+1+".png')";
+
+    	function update()
+		{
+    			if(step==1)
+			{
+				step=2;
+			}
+		else
+		{
+			step=1;
+		}
+    		document.getElementById("character").style.left = leftValue+"px";
+    		document.getElementById("character").style.top = topValue+"px";
+			document.getElementById("character").style.backgroundImage="url('"+direction+step+".png')";
+			
+			
+    	}
+		
+    	document.onkeydown = function(e){
+    		console.log(e);
+    		if(e.keyCode == 37) { // LEFT
+    			leftValue = leftValue - 10;
+				console.log("x "+leftValue+" | y "+topValue);
+				if(leftValue === 0 || leftValue < 0)  //Using a condition, if ninja arrives at the edge of the screen, then it keeps resetting itself to the edge value
+				{
+					leftValue=0;
+				}
+				direction="left";
+			
+				}
+    		else if (e.keyCode == 39) { // RIGHT
+    			leftValue = leftValue + 10;
+				console.log("x "+leftValue+" | y "+topValue);
+				if(leftValue === 610 || leftValue > 610)  //Using a condition, if ninja arrives at the edge of the screen, then it keeps resetting itself to the edge value
+				{
+					leftValue=610;
+				}
+				direction="right";    		
+    		}
+    		else if (e.keyCode == 40) { // DOWN
+				topValue = topValue + 10;
+				console.log("x "+leftValue+" | y "+topValue);
+				if(topValue === 480 || topValue > 480)  //Using a condition, if ninja arrives at the edge of the screen, then it keeps resetting itself to the edge value
+				{
+					topValue=480;
+				}
+				direction="down";    		
+    		}
+			else if (e.keyCode == 38) { // UP
+				topValue = topValue - 10;
+				console.log("x "+leftValue+" | y "+topValue);
+				if(topValue === 60 || topValue < 60)  //Using a condition, if ninja arrives at the edge of the screen, then it keeps resetting itself to the edge value
+				{
+					topValue=60;
+				}
+				direction="top";    		
+    		}
+    		// ...
+    		update();
+    	}
+
+var world = [
+ [1,1,1,1,1,1,1,1],
+ [1,1,1,1,1,1,1,1],
+ [1,1,1,1,1,1,1,1],
+ [1,1,1,1,1,1,1,1],
+ [1,1,1,1,1,1,1,1]
+ ];
+//translated to below
+
+var worldDict={
+    0: "blank",
+    1: "wall",
+    2: "sushi",
+}
+
+function drawWorld()
+{
+    output="";
+    for(var row=0;row<world.length;row++)
+    {
+        output +="<div class = 'row'></div>";
+        for(var x=0; x<world[row].length;x++)
+        {
+            console.log("element: ",world[row][x]);
+        }
+    }
+    document.getElementById("world").innerHTML=output;
+}
+
+    </script>
+
+</body></html>

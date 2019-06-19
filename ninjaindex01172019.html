@@ -1,0 +1,411 @@
+<html>
+
+
+
+<head><link rel="stylesheet" type="text/css" href="ninjagame (2).css"></head>
+
+<body>
+    <div id="character"></div>
+    <div id="world"></div>
+    <div class="row"></div>
+    <div id="ghost"></div>
+        <div class="bluey"></div>
+        <div class="pinky"></div>
+        <div class="pumpky"></div>
+        <div class="red"></div>
+        <div class="scaredy"></div>
+        
+
+</div>
+
+
+<!--code written be is a static way to build the background world. 
+    The dynamic version is written in the JS script below-->
+       <!--<div class="row">
+            <div class="wall"></div>
+            <div class="wall"></div>
+            <div class="wall"></div>
+            <div class="wall"></div>
+            <div class="wall"></div>
+            <div class="wall"></div>
+            <div class="wall"></div>
+            <div class="wall"></div>
+            <div class="wall"></div>
+            <div class="wall"></div>
+            <div class="wall"></div>
+            <div class="wall"></div>
+        </div>
+        <div class="row">
+                <div class="wall"></div>
+                <div class="blank"></div>
+                <div class="blank"></div>
+                <div class="blank"></div>
+                <div class="sushi"></div>
+                <div class="blank"></div>
+                <div class="blank"></div>
+                <div class="blank"></div>
+                <div class="blank"></div>
+                <div class="blank"></div>
+                <div class="blank"></div>
+                <div class="wall"></div>
+
+            </div>
+          <div class="row">
+            <div class="wall"></div>
+            <div class="blank"></div>
+            <div class="wall"></div>
+            <div class="blank"></div>
+            <div class="wall"></div>
+            <div class="wall"></div>
+            <div class="blank"></div>
+            <div class="wall"></div>
+            <div class="blank"></div>
+            <div class="wall"></div>
+            <div class="blank"></div>
+            <div class="wall"></div>
+        </div>
+          <div class="row">
+            <div class="blank"></div>
+            <div class="blank"></div>
+            <div class="wall"></div>
+            <div class="blank"></div>
+            <div class="blank"></div>
+            <div class="blank"></div>
+            <div class="sushi"></div>
+            <div class="blank"></div>
+            <div class="blank"></div>
+            <div class="wall"></div>
+            <div class="blank"></div>
+            <div class="blank"></div>
+        </div>
+          <div class="row">
+            <div class="wall"></div>
+            <div class="sushi"></div>
+            <div class="wall"></div>
+            <div class="blank"></div>
+            <div class="wall"></div>
+            <div class="blank"></div>
+            <div class="wall"></div>
+            <div class="wall"></div>
+            <div class="blank"></div>
+            <div class="wall"></div>
+            <div class="blank"></div>
+            <div class="wall"></div>
+        </div>
+          <div class="row">
+      <div class="wall"></div>
+            <div class="blank"></div>
+            <div class="wall"></div>
+            <div class="blank"></div>
+            <div class="wall"></div>
+            <div class="blank"></div>
+            <div class="wall"></div>
+            <div class="wall"></div>
+            <div class="blank"></div>
+            <div class="wall"></div>
+            <div class="blank"></div>
+            <div class="wall"></div>
+        </div>
+          <div class="row">
+                <div class="wall"></div>
+                <div class="blank"></div>
+                <div class="blank"></div>
+                <div class="blank"></div>
+                <div class="blank"></div>
+                <div class="blank"></div>
+                <div class="blank"></div>
+                <div class="blank"></div>
+                <div class="blank"></div>
+                <div class="sushi"></div>
+                <div class="blank"></div>
+                <div class="wall"></div>
+        </div>
+        <div class="row">
+                <div class="wall"></div>
+                <div class="wall"></div>
+                <div class="wall"></div>
+                <div class="wall"></div>
+                <div class="wall"></div>
+                <div class="wall"></div>
+                <div class="wall"></div>
+                <div class="wall"></div>
+                <div class="wall"></div>
+                <div class="wall"></div>
+                <div class="wall"></div>
+                <div class="wall"></div>
+            </div>-->
+
+<h2 id="gamestats">Game Stats</h2>
+<h3 id="score">Score</h3>
+<h3 id="sushieaten">Sushis Eaten</h3>
+<h3 id="onigirieaten">Onigiris Eaten</h3>
+<h3 id="pixelstraveled">Pixels Traveled</h3>
+<h1>NINJA PACMAN CHALLENGE</h1>
+
+<script type="text/javascript">
+
+
+
+//STATIC CHARACTER MOVEMENT CODE
+
+/*var leftValue = 270
+var topValue = 340
+var directon=1
+var step=1;
+
+
+    	function update()
+		{
+    			if(step==1)
+			{
+				step=2;
+			}
+		else
+		{
+			step=1;
+		}
+    		document.getElementById("character").style.left = leftValue+"px";
+    		document.getElementById("character").style.top = topValue+"px";
+			document.getElementById("character").style.backgroundImage="url('img/"+direction+step+".png')";
+			
+			
+    	}
+		
+    	document.onkeydown = function(e){
+    		console.log(e);
+    		if(e.keyCode == 37) { // LEFT
+    			leftValue = leftValue - 50;
+				//console.log("x "+leftValue+" | y "+topValue);
+				if(leftValue === 0 || leftValue < 0)  //Using a condition, if ninja arrives at the edge of the screen, then it keeps resetting itself to the edge value
+				{
+					leftValue=0;
+				}
+				direction="left";
+				}
+    		else if (e.keyCode == 39) { // RIGHT
+    			leftValue = leftValue + 50;
+				//console.log("x "+leftValue+" | y "+topValue);
+				if(leftValue === 630 || leftValue > 630)  //Using a condition, if ninja arrives at the edge of the screen, then it keeps resetting itself to the edge value
+				{
+					leftValue=630;
+				}
+				direction="right";    		
+    		}
+    		else if (e.keyCode == 40) { // DOWN
+				topValue = topValue + 50;
+				//console.log("x "+leftValue+" | y "+topValue);
+				if(topValue === 600 || topValue > 600)  //Using a condition, if ninja arrives at the edge of the screen, then it keeps resetting itself to the edge value
+				{
+					topValue=600;
+				}
+				direction="down";    		
+    		}
+			else if (e.keyCode == 38) { // UP
+				topValue = topValue - 50;
+				//onsole.log("x "+leftValue+" | y "+topValue);
+				if(topValue === 0 || topValue <0)  //Using a condition, if ninja arrives at the edge of the screen, then it keeps resetting itself to the edge value
+				{
+					topValue=0;
+				}
+				direction="top";    		
+    		}
+    		update();
+    	}*/
+        
+        
+
+//DYNAMIC WORLD CODE
+var world = [
+        [1,1,1,1,1,1,1,1,1,1,1,1],
+        [1,0,0,0,2,0,0,0,0,0,0,1],
+        [1,0,1,0,1,1,0,1,0,1,0,1],
+        [0,0,1,0,0,0,2,0,0,1,0,0],
+        [1,2,1,0,1,3,1,1,0,1,0,1],
+        [1,0,1,0,1,0,1,1,0,1,0,1],
+        [1,0,0,0,0,0,0,0,0,2,0,1],
+        [1,1,1,1,1,1,1,1,1,1,1,1]
+        ]
+
+//above are rows of different elements, translated below
+
+var worldDict={
+    0: "blank",
+    1: "wall",
+    2: "sushi",
+    3: "onigiri"
+}
+
+/*function below dynamically builds the pacman world by referencing 
+the multi-dim array and object above.  The key concept is that it produces HTML from JS function*/
+
+function drawWorld()
+{
+    output="";
+    for(var row=0;row<world.length;row++)
+    {
+        output+="<div class = 'row'>"
+        for(var x=0; x<world[row].length;x++)  // "x" represents the element in the world: 0,1,2
+        {
+            output=output+"<div class='"+worldDict[world[row][x]]+"'></div>"  // <div class='wall'></div>
+        }
+        output=output+"</div>"
+    }
+    document.getElementById("world").innerHTML=output;
+}
+drawWorld();
+
+//DYNAMIC CHARACTER MOVEMENT
+
+var character=
+{x:1, y:1}   //object
+
+
+function drawNinjaMan()
+{
+    
+    document.getElementById('character').style.left=character.x * 70 +"px";
+    //document.getElementById('character').style.left=character.x + 270+"px";
+    document.getElementById('character').style.top=character.y * 70 +"px";
+    //document.getElementById('character').style.top=character.y + 340+"px";    
+}
+
+drawNinjaMan();
+
+var totalScore=0;
+var sushiCount=0;
+var onigiriCount=0;
+
+document.onkeydown=function(e)
+{
+    if(e.keyCode==37) //left
+    {
+        if(world[character.y][character.x-1]!=1)
+        {
+            character.x--;
+        }
+        if(world[character.y][character.x]==2)
+        {
+            totalScore=totalScore+5;
+            console.log(totalScore);
+            sushiCount=sushiCount+1;
+            console.log(sushiCount);
+            
+        }
+        if(world[character.y][character.x]==3)
+        {
+            totalScore=totalScore+10;
+            console.log(totalScore);
+            sushiCount=sushiCount+1;
+            console.log(sushiCount);
+            onigiriCount=onigiriCount+1;
+            console.log(onigiriCount);
+        }
+        /*if(world[3][0])
+        {
+            world[3][12]=world[3][0];
+        }*/
+        
+    }
+    if(e.keyCode==39) //right
+    {
+        if(world[character.y][character.x+1]!=1)
+        {
+            character.x++;            
+        }
+        if(world[character.y][character.x]==2)
+        {
+            totalScore=totalScore+5;
+            console.log(totalScore);
+            sushiCount=sushiCount+1;
+            console.log(sushiCount);
+        }
+        if(world[character.y][character.x]==3)
+        {
+            totalScore=totalScore+10;
+            console.log(totalScore);
+            onigiriCount=onigiriCount+1;
+            console.log(onigiriCount);
+        }
+        //console.log("x.coord "+character.x+"| y.coord "+character.y);
+    }
+    if(e.keyCode==38) //up
+    {
+        if(world[character.y-1][character.x]!=1)
+        {
+            character.y--;
+        }
+        if(world[character.y][character.x]==2)
+        {
+            totalScore=totalScore+5;
+            console.log(totalScore);
+            sushiCount=sushiCount+1;
+            console.log(sushiCount);
+        }
+        if(world[character.y][character.x]==3)
+        {
+            totalScore=totalScore+10;
+            console.log(totalScore);
+            onigiriCount=onigiriCount+1;
+            console.log(onigiriCount);
+        }
+        //console.log("x.coord "+character.x+"| y.coord "+character.y);
+    }
+    if(e.keyCode==40) //down
+    {
+        if(world[character.y+1][character.x]!=1)
+        {
+            character.y++;
+        }
+        //console.log("x.coord "+character.x+"| y.coord "+character.y);
+        if(world[character.y][character.x]==2)
+        {
+            totalScore=totalScore+5;
+            console.log(totalScore);
+            sushiCount=sushiCount+1;
+            console.log(sushiCount);
+        }
+        if(world[character.y][character.x]==3)
+        {
+            totalScore=totalScore+10;
+            console.log(totalScore);
+            onigiriCount=onigiriCount+1;
+            console.log(onigiriCount);
+        }
+    }
+    world[character.y][character.x]=0;
+    document.getElementById
+    drawNinjaMan();
+    drawWorld();
+    document.getElementById("score").innerHTML="Score "+totalScore;
+    document.getElementById("sushieaten").innerHTML="Sushis Eaten "+sushiCount;
+    document.getElementById("onigirieaten").innerHTML="Onigiri Eaten "+onigiriCount;
+}
+
+
+function drawGhosts()
+{
+    content="";
+    for(var i=0;i<bluey.length;i++)
+    {
+        content=content+"<div class='bluey' style='left: 1px; top:1px'></div>"
+    }
+    document.getElementById("bluey").innerHTML="<div class='bluey' style='left: 1px; top:1px'></div>";
+    //document.getElementById("bluey").style.left=bluey.top.y;
+}
+
+
+function gameLoop()
+{
+    setTimeout(gameLoop,500)
+}
+gameLoop()
+
+
+
+
+</script>
+    
+</body>
+<hr>
+<footer>Updated by Phong Nguyen</footer>
+</html>
