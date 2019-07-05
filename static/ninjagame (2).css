@@ -1,11 +1,24 @@
+.body{
+    display: grid;
+    /* grid-template-columns: 75% 25%; */
+    justify-content: center;
+}	
 
+#scoreboard{
+    z-index: 2;
+    position: absolute;
+}
 
-	
+#game{
+    display: grid;
+    justify-content: center;
+}
 #character{
     position:absolute; 
-	background-image: url("down1.png");
+    /* background-image: url("./static/img/down1.png"); */
+    background-image: url("./img/down1.png");
     width: 59px; height:79px;
-    margin: -3px;
+    margin-left: 550px;
     padding: 0;
     }
     
@@ -43,7 +56,7 @@
 .sushi {
     display: inline-block;
     background-color: black;
-    background-image: url("sushi.png");
+    background-image: url("./img/sushi.png");
     background-size:contain;
     margin: 0px;
     padding: 0px;
@@ -57,7 +70,7 @@
 .onigiri {
     display: inline-block;
     background-color: black;
-    background-image: url("onigiri.png");
+    background-image: url("./img/onigiri.png");
     background-size:contain;
     margin: 0px;
     padding: 0px;
@@ -72,7 +85,7 @@
 
 .bluey
 {
-    background-image: url("bluey.gif");
+    background-image: url("./img/bluey.gif");
     position: absolute;
     width: 50px;
     height: 50px;
@@ -105,7 +118,6 @@ hr{
 h1{
     color: red;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    font-size: 800%;
     font-style: oblique;
     text-shadow: 5px 2px darkred;
 }
