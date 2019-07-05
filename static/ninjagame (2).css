@@ -121,3 +121,16 @@ h1{
     font-style: oblique;
     text-shadow: 5px 2px darkred;
 }
+
+button{
+    background: red;
+    width: 50%;
+    font-size: x-large;
+    margin: 0 auto;
+    margin-top: 1%;
+}
+
+a {
+    color: white; 
+    text-decoration: none;
+}
