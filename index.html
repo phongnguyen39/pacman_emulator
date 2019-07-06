@@ -35,16 +35,36 @@
     <script type="text/javascript">
 
         //DYNAMIC WORLD CODE
-        var world = [
-            [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
-            [1, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 1],
-            [1, 0, 1, 0, 1, 1, 0, 1, 0, 1, 0, 1],
-            [1, 0, 1, 0, 0, 0, 2, 0, 0, 1, 0, 1],
-            [1, 2, 1, 0, 1, 3, 1, 1, 0, 1, 0, 1],
-            [1, 0, 1, 0, 1, 0, 1, 1, 0, 1, 0, 1],
-            [1, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 1],
-            [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
-        ]
+        // var world = [
+        //     [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+        //     [1, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 1],
+        //     [1, 0, 1, 0, 1, 1, 0, 1, 0, 1, 0, 1],
+        //     [1, 0, 1, 0, 0, 0, 2, 0, 0, 1, 0, 1],
+        //     [1, 2, 1, 0, 1, 3, 1, 1, 0, 1, 0, 1],
+        //     [1, 0, 1, 0, 1, 0, 1, 1, 0, 1, 0, 1],
+        //     [1, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 1],
+        //     [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+        // ]
+
+        function worldGenerator() {
+
+            world = [];
+            for (var i = 0; i < 7; i++) {
+                var row = [];
+                for (var j = 0; j < 12; j++) {
+                    let unit = Math.round(Math.random()*3);
+                    row.push(unit);
+                }
+                row.unshift(1)
+                row.push(1)
+                world.push(row)
+            }
+            
+            world.unshift([1,1,1,1,1,1,1,1,1,1,1,1,1,1])
+            world.push([1,1,1,1,1,1,1,1,1,1,1,1,1,1])
+            
+        }
+        worldGenerator();
 
         //above are rows of different elements, translated below
 
@@ -54,6 +74,7 @@
             2: "sushi",
             3: "onigiri"
         }
+
 
         /*function below dynamically builds the pacman world by referencing 
         the multi-dim array and object above.  The key concept is that it produces HTML from JS function*/

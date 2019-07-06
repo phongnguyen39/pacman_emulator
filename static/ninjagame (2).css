@@ -18,7 +18,7 @@
     /* background-image: url("./static/img/down1.png"); */
     background-image: url("./img/down1.png");
     width: 59px; height:79px;
-    margin-left: 550px;
+    margin-left: 490px;
     padding: 0;
     }
     
@@ -42,7 +42,7 @@
 
 .blank {
     display: inline-block;
-    background-color: rgb(25 25 25);
+    background-color: rgb(55 55 55);
     margin: 0px;
     padding: 0px;
     width: 67px; height: 67px;
@@ -55,7 +55,7 @@
 
 .sushi {
     display: inline-block;
-    background-color: black;
+    background-color: rgb(55 55 55);
     background-image: url("./img/sushi.png");
     background-size:contain;
     margin: 0px;
@@ -69,7 +69,7 @@
 }
 .onigiri {
     display: inline-block;
-    background-color: black;
+    background-color: rgb(55 55 55);
     background-image: url("./img/onigiri.png");
     background-size:contain;
     margin: 0px;
